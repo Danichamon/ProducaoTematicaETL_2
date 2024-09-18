@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/17/2024 11:17:00 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MG7764NB782"
+  DTS:CreatorName="CORPCAIXA\c080103"
+  DTS:DTSID="{1D55525A-8568-4038-A382-9E0446C38805}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.694.0"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{6FDB7372-DAD3-44C8-9877-45EC7B22DCD4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.123.18.110.desDB001.qldUD_001]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{031477A1-3680-4149-9A6B-30100456D84B}"
+      DTS:ObjectName="10.123.18.110.desDB001.qldUD_001">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=10.123.18.110;User ID=qldUD_001;Initial Catalog=desDB001;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-Package-{031477A1-3680-4149-9A6B-30100456D84B}10.123.18.110.desDB001.qldUD_001;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEhtTTI8NOEK1AqKGooGN3AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA02O37n6dgHohV9IAMfpAyAAAAAASAAACgAAAAEAAAAOiNH87d18GYvRHeJz7ot2EYAAAAMd8YngZBSmziz2+njy7SUeqIPKZpbri4FAAAACMQ4TXFzrPAv66GsiDF0VFK4ikf</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[db_connection]"
+      DTS:CreationName="ADO.NET:SQL"
+      DTS:DTSID="{7EBBBF23-968E-4D85-AEB8-40E12162DCB6}"
+      DTS:ObjectName="db_connection">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.123.18.110;User ID=qldUD_001;Initial Catalog=desDB001;Persist Security Info=True;Connect Timeout=30;Application Name=SSIS-Package-{7EBBBF23-968E-4D85-AEB8-40E12162DCB6}db_connection;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEhtTTI8NOEK1AqKGooGN3AAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACS8vjcGuXg2ymjvKEFTG3ZAAAAAASAAACgAAAAEAAAAIwutGDROXaQM+Cugs+tIEYYAAAAVAwHWxfAk8zSS6HASaENTmbw9xP1yERwFAAAADddRmrfxOH5wG7aEn4jfBJY0GdS</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8312CB5C-D121-4DB1-8A75-A7007FA8E3AC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{031477A1-3680-4149-9A6B-30100456D84B}"
+          SQLTask:SqlStatementSource="SELECT max([dh_arquivo]) as dh_ultimo_arquivo FROM [desDB001].[dbo].[prTb001_Arquivo]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Script Task"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:DTSID="{89406EFB-B71B-4EF7-92BE-5478DD0EAD6C}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Script Task"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_ba6fd03bcf9e4846863620f25caf6458"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="168,42.6666666666667"
+          Id="Package\Execute SQL Task"
+          TopLeft="221.249996703118,21.210526715025" />
+        <NodeLayout
+          Size="133.333333333334,42.6666666666667"
+          Id="Package\Script Task"
+          TopLeft="286.249995734543,114.947370584652" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
